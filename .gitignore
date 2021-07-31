@@ -1,0 +1,9 @@
+/.venv
+/.idea
+/discord/.env
+/matrix/credentials.json
+/matrix/element-keys.txt
+/matrix/input
+/matrix/backup
+/whatsapp/whatsapp_exports
+/whatsapp/wa_backup
