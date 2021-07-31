@@ -6,8 +6,6 @@ Cheesecake currently supports backups of three types - `discord`, `matrix`, and 
 includes an example of using `generic` to backup WhatsApp chats.
 
 ## Discord
-[https://discord.com](https://discord.com)
-
 The script lets you backup whole servers, but it doesn't handle DMs. The backup includes a lot of
 stuff, including custom emoji and attachments. The resulting backup files can  easily get very large
 on big servers, so don't include attachments if you're backing up an enormous server.
@@ -25,8 +23,6 @@ on big servers, so don't include attachments if you're backing up an enormous se
 + `python discord-archive.py`
 
 ## Matrix
-[https://matrix.org](https://matrix.org)
-
 Backing up matrix involves running two scripts - the first one downloads the messages from the
 server, and the second one runs locally to convert the downloaded messages into a format compatible
 with cheesecake. The first script depends on `python-olm`, which can be
@@ -50,8 +46,6 @@ compatible with windows now (recommended even if you're on unix, so that you can
 
 
 ## WhatsApp
-[https://www.whatsapp.com](https://www.whatsapp.com)
-
 WhatsApp's export format lacks a lot of information, like user avatars, phone numbers, and replies.
 Because of this, the backup script will ask you for a lot of this information, but replies will
 only be saved like normal messages (you won't be able to see what message it is a reply to). You
