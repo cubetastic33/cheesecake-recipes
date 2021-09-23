@@ -16,6 +16,15 @@ intents.members = True
 
 client = discord.Client(intents=intents)
 
+def get_guild():
+    guild = client.get_guild(int(os.environ["GUILD"]))
+
+    if guild is None:
+        print(f"Error: guild {os.environ['GUILD']} not found")
+        sys.exit()
+
+    return guild
+
 
 @client.event
 async def on_ready():
@@ -30,7 +39,7 @@ async def on_ready():
 
 async def initialize_backup():
     # The guild we wanna backup
-    guild = client.get_guild(int(os.environ["GUILD"]))
+    guild = get_guild()
 
     # Create the backup directory
     backup_path = Path(str(guild.id))
@@ -75,7 +84,7 @@ async def initialize_backup():
 
 async def backup_messages():
     # The guild we wanna backup
-    guild = client.get_guild(int(os.environ["GUILD"]))
+    guild = get_guild()
 
     backup_path = Path(str(guild.id))
     # Create directories to store assets
@@ -253,7 +262,11 @@ async def backup_messages():
 
 async def index_messages():
     # The guild we wanna backup
-    guild = client.get_guild(int(os.environ["GUILD"]))
+    guild = get_guild()
+
+    if guild is None:
+        print(f"Error: guild {os.environ['GUILD']} not found")
+        sys.exit()
 
     backup_path = Path(str(guild.id))
 
